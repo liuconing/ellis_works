@@ -1,0 +1,121 @@
+$font-xl_us: 20px;
+$font-l_us: 18px;
+$font-m_us: 16px;
+$font-s_us: 14px;
+$line-h_us: 1px;
+//mixin
+@mixin fontWeight($w: normal) {
+  font-weight: $w;
+}
+//文字縮寫
+@mixin text_abbreviation {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+//清除浮動
+// @mixin clearfix {
+//   &::after {
+//     display: block;
+//     content: "";
+//     clear: both;
+//   }
+// }
+@mixin mouse {
+  cursor: pointer;
+}
+//垂直置中
+@mixin Vertical_Centering {
+  &:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    vertical-align: middle;
+  }
+}
+//flex 置中
+@mixin flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+//flex 水平位置 垂直位置
+@mixin flex_pos($j_pos, $a_pos) {
+  display: flex;
+  justify-content: $j_pos;
+  align-items: $a_pos;
+}
+
+// 視窗大小
+@mixin dai_1440 {
+  @media (max-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin dai_1280 {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin dai_1200 {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin dai_1024 {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin dai_992 {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin dai_860 {
+  @media (max-width: 860px) {
+    @content;
+  }
+}
+
+@mixin dai_768 {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin dai_576 {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+
+@mixin dai_425 {
+  @media (max-width: 425px) {
+    @content;
+  }
+}
+
+@mixin dai_414 {
+  @media (max-width: 414px) {
+    @content;
+  }
+}
+
+@mixin dai_375 {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+
+@mixin dai_320 {
+  @media (max-width: 320px) {
+    @content;
+  }
+}
