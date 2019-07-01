@@ -13,9 +13,14 @@ export default new Router({
       component: () => import("./views/Home.vue")
     },
     {
-      path: "/gallerys",
+      path: "/tourism",
       name: "Tourism",
       component: () => import("./views/Gallerys/Tourism.vue")
+    },
+    {
+      path: "/airquality",
+      name: "AirQuality",
+      component: () => import("./views/Gallerys/AirQuality.vue")
     }
   ]
 });

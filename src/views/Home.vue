@@ -29,13 +29,13 @@
       <div class="container-fluid GalleryList">
         <ul>
           <li>
-            <router-link to="/gallerys">作品1</router-link>
+            <router-link to="/tourism">作品1</router-link>
           </li>
           <li>
-            <router-link to>作品2</router-link>
+            <a href="https://pure-beyond-68785.herokuapp.com/" target="_blank">作品2</a>
           </li>
           <li>
-            <router-link to>作品3</router-link>
+            <router-link to="/airquality">作品3</router-link>
           </li>
           <li>
             <router-link to>作品4</router-link>
