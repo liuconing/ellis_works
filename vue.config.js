@@ -12,7 +12,7 @@ module.exports = {
     ]
   },
 
-  baseUrl: process.env.NODE_ENV === "production" ? "" : "",
+  // baseUrl: process.env.NODE_ENV === "production" ? "" : "",
   publicPath: process.env.NODE_ENV === "production" ? "/ellis_works/" : "/",
   outputDir: undefined,
   assetsDir: undefined,
