@@ -21,6 +21,11 @@ export default new Router({
       path: "/airquality",
       name: "AirQuality",
       component: () => import("./views/Gallerys/AirQuality.vue")
+    },
+    {
+      path: "/fortune",
+      name: "Fortune",
+      component: () => import("./views/Gallerys/Fortune.vue")
     }
   ]
 });

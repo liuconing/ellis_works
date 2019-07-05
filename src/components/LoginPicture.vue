@@ -1,26 +1,24 @@
 <template>
-  <div class="LoginPicture">
-    <div class="Mask d-flex justify-content-center align-items-center">
-      <div>
-        <p>{{"HELLO！ I'M Ellis"}}</p>
-        <div class="Community text-center mt-5">
-          <a
-            href="https://www.facebook.com/profile.php?id=100000383240908"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <i class="fab fa-facebook-square fa-3x"></i>
-          </a>
-          <a href="http://www.google.com.tw" rel="noopener noreferrer" target="_blank">
-            <i class="fab fa-google fa-3x ml-5"></i>
-          </a>
-          <a href="https://github.com/liuconing/about-me" rel="noopener noreferrer" target="_blank">
-            <i class="fab fa-github fa-3x ml-5"></i>
-          </a>
-        </div>
-        <div class="text-center">
-          <i @click="ScrollTop('nav')" class="Anchor fas fa-angle-double-down fa-4x"></i>
-        </div>
+  <div class="LoginPicture d-flex justify-content-center align-items-center">
+    <div>
+      <p>{{"HELLO！ I'M Ellis"}}</p>
+      <div class="Community text-center mt-5">
+        <a
+          href="https://www.facebook.com/profile.php?id=100000383240908"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i class="fab fa-facebook-square fa-3x"></i>
+        </a>
+        <a href="http://www.google.com.tw" rel="noopener noreferrer" target="_blank">
+          <i class="fab fa-google fa-3x ml-5"></i>
+        </a>
+        <a href="https://github.com/liuconing/about-me" rel="noopener noreferrer" target="_blank">
+          <i class="fab fa-github fa-3x ml-5"></i>
+        </a>
+      </div>
+      <div class="text-center">
+        <i @click="ScrollTop('nav')" class="Anchor fas fa-angle-double-down fa-4x"></i>
       </div>
     </div>
   </div>
@@ -50,23 +48,23 @@
   .LoginPicture {
     position: relative;
     height: 100vh;
-    background-image: url(../assets/images/switzerland-4290226_1920.jpg);
+    background-image: radial-gradient(rgba(0, 0, 0, 0.05), black),
+      url(../assets/images/switzerland-4290226_1920.jpg);
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
     z-index: 1;
-    .Mask {
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.15);
-      p {
-        font-size: 60px;
-        color: white;
-        @include dai_425 {
-          font-size: 35px;
-        }
+    p {
+      font-size: 60px;
+      color: white;
+      @include dai_425 {
+        font-size: 35px;
       }
-      .fas {
-        font-size: 40px;
+    }
+    .fas {
+      font-size: 40px;
+      @include dai_425 {
+        font-size: 70px;
       }
     }
     .Community {
@@ -78,7 +76,7 @@
         }
       }
       .fab {
-        font-size: 30px;
+        font-size: 40px;
       }
     }
     .Anchor {

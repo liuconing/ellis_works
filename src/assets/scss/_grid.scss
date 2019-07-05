@@ -25,7 +25,7 @@ $line-h_us: 1px;
   cursor: pointer;
 }
 //垂直置中
-@mixin Vertical_Centering {
+@mixin TextCenter {
   &:before {
     content: "";
     display: inline-block;

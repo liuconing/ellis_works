@@ -24,20 +24,11 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <router-link class="nav-link" @click.native="ScrollTop('Home')" to>Home</router-link>
+            <router-link class="nav-link" @click.native="ScrollTop('Home')" to="/">Home</router-link>
             <!-- <a  href="javascript:;" @click="ScrollTop('Home')">Home</a> -->
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="javascript:;">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="javascript:;">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="javascript:;">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="javascript:;">Link</a>
+            <a class="nav-link" href="javascript:;" @click="ScrollTop('Gallery')">作品</a>
           </li>
         </ul>
       </div>

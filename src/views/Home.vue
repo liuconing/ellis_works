@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="Home" class="container-fluid clearfix">
-      <h2 class="text-center font-weight-bold mb-5">介紹</h2>
+      <h2 class="text-center font-weight-bold mb-4">介紹</h2>
       <div class="row">
         <div class="col-md-6 MyImag">
           <img src="https://i.imgur.com/vTWoB7o.png" alt="劉文華（Ellis）" />
@@ -29,16 +29,24 @@
       <div class="container-fluid GalleryList">
         <ul>
           <li>
-            <router-link to="/tourism">作品1</router-link>
+            <router-link to="/tourism">
+              <img src="../assets/images/Tourism.jpg" alt="高雄旅遊景點" />
+            </router-link>
           </li>
           <li>
-            <a href="https://pure-beyond-68785.herokuapp.com/" target="_blank">作品2</a>
+            <a href="https://pure-beyond-68785.herokuapp.com/" target="_blank">
+              <img src="../assets/images/herokuapp.jpg" alt="RWD ( 手刻板 ) 一頁網頁" />
+            </a>
           </li>
           <li>
-            <router-link to="/airquality">作品3</router-link>
+            <router-link to="/airquality">
+              <img src="../assets/images/AirQuality.jpg" alt="空氣品質指標 (AQI)" />
+            </router-link>
           </li>
           <li>
-            <router-link to>作品4</router-link>
+            <router-link to="/fortune" @click.native="ScrollTop('Fortune','fortune')">
+              <img src="../assets/images/Fortune.jpg" alt="神明求籤" />
+            </router-link>
           </li>
         </ul>
       </div>
@@ -48,7 +56,22 @@
 
 <script>
   export default {
-    components: {}
+    components: {},
+    methods: {
+      ScrollTop(id, PathName) {
+        new Promise((resolve, reject) => {
+          this.$router.push({ path: `/${PathName}` });
+          resolve();
+        }).then(res => {
+          $("html, body").animate(
+            {
+              scrollTop: $(`#${id}`).offset().top
+            },
+            1000
+          );
+        });
+      }
+    }
   };
 </script>
 <style lang="scss" scoped>
@@ -57,6 +80,9 @@
     padding-top: 20px;
     padding-bottom: 30px;
     // min-height: 100vh;
+    h2 {
+      font-size: 48px;
+    }
     .MyImag {
       img {
         display: block;
@@ -66,6 +92,9 @@
     }
     .MyInt {
       padding-left: 20px;
+      @include dai_425 {
+        padding-left: 10px;
+      }
       h3 {
         border-left: 2px solid #000;
         border-bottom: 2px solid #000;
@@ -80,6 +109,10 @@
         font-size: 23px;
         padding-left: 20px;
         font-weight: 500;
+        @include dai_425 {
+          line-height: 1.5;
+          padding-left: 0;
+        }
       }
     }
   }
@@ -89,6 +122,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     padding-top: 58px;
     h2 {
+      font-size: 48px;
       color: white;
     }
     .GalleryList {
@@ -98,8 +132,13 @@
           display: inline-block;
           width: calc(100% / 4 - 40px);
           margin: 0 20px;
-          background-color: white;
+          background-color: rgba(0, 0, 0, 0);
           min-height: 350px;
+          img {
+            display: block;
+            width: 100%;
+            height: auto;
+          }
         }
       }
     }

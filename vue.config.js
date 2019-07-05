@@ -27,5 +27,7 @@ module.exports = {
         data: `@import "@/assets/scss/all.scss";`
       }
     }
-  }
+  },
+
+  lintOnSave: false
 };
