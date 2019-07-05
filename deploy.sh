@@ -47,3 +47,8 @@ cd - master
 # git push -f https://github.com/liuconing/ellis_works.git master:gh-pages
 
 cd -
+# $ npm run build
+# $ git checkout -b gh-pages
+# $ git add -f dist
+# $ git commit -m 'create project'
+# $ git subtree push --prefix dist origin gh-pages
