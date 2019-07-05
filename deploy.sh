@@ -36,7 +36,7 @@ git add -A
 git commit -m 'deploy'
 
 # 部署到 https://<USERNAME>.github.io
-# git push -f https://github.com/liuconing/ellis_works.git master
+git push -f https://github.com/liuconing/ellis_works.git master
 
 # 部署到 https://<USERNAME>.github.io/<REPO>
 git push -f https://github.com/liuconing/ellis_works.git master:gh-pages
