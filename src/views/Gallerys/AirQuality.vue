@@ -298,7 +298,7 @@
     .DisplayArea {
       display: flex;
       justify-content: center;
-      align-content: center;
+      align-items: center;
       padding: 0 10%;
       height: 35px;
       margin: 45px 0;
@@ -457,7 +457,7 @@
     padding: 0 15%;
     display: flex;
     justify-content: space-between;
-    align-content: center;
+    align-items: center;
     span {
       color: white;
       line-height: 35px;

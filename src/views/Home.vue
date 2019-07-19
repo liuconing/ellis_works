@@ -29,7 +29,7 @@
       <div class="container-fluid GalleryList">
         <ul>
           <li>
-            <router-link to="/tourism">
+            <router-link to="gallerys/tourism">
               <img src="../assets/images/Tourism.jpg" alt="高雄旅遊景點" />
             </router-link>
           </li>
@@ -39,12 +39,12 @@
             </a>
           </li>
           <li>
-            <router-link to="/airquality">
+            <router-link to="gallerys/airquality">
               <img src="../assets/images/AirQuality.jpg" alt="空氣品質指標 (AQI)" />
             </router-link>
           </li>
           <li>
-            <router-link to="/fortune" @click.native="ScrollTop('Fortune','fortune')">
+            <router-link to="gallerys/fortune">
               <img src="../assets/images/Fortune.jpg" alt="神明求籤" />
             </router-link>
           </li>
