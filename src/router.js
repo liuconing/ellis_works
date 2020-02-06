@@ -45,7 +45,11 @@ export default new Router({
         },
         {
           path: "tomato",
-          component: () => import("./views/F2E/Tomato.vue")
+          component: () => import("./views/F2E/Tomato/Tomato.vue")
+        },
+        {
+          path: "solitaire",
+          component: () => import("./views/F2E/NewSolitaire/Solitaire.vue")
         }
       ]
     },

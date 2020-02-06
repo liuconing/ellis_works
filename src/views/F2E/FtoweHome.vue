@@ -6,6 +6,10 @@
       第一關 - 番茄鐘
       <router-link to="/thef2e/tomato">Tmato Todo-List ( 因專案進度無法及時完成 後續補上 )</router-link>
     </p>
+    <p>
+      第二關 - 新接龍
+      <router-link to="/thef2e/solitaire">New Solitaire</router-link>
+    </p>
     <p></p>
   </div>
 </template>
