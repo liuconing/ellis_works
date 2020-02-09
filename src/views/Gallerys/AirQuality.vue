@@ -141,7 +141,8 @@
         DisplayArea: [],
         OneAreaName: "",
         OneArea: {},
-        isLoading: true
+        isLoading: true,
+        closeInterval: null
       };
     },
     components: {
@@ -209,9 +210,12 @@
           });
       }
     },
+    beforeDestroy() {
+      clearInterval(this.closeInterval);
+    },
     async created() {
       await this.GetAPI();
-      setInterval(async () => {
+      this.closeInterval = setInterval(async () => {
         let t = new Date();
         let now = t.toLocaleTimeString().replace(/^\D*/, "");
         let num = now.indexOf(":");
@@ -225,8 +229,6 @@
         ...new Set(this.GetData.map(item => JSON.stringify(item.County)))
       ].map(item => JSON.parse(item));
       this.addMarker();
-      // console.log(this.GetData);
-      // console.log(this.FilterArea(this.GetData, "新竹縣"));
     }
   };
 </script>
@@ -336,10 +338,11 @@
     .AirQuality_content {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       padding: 0 10%;
       @include dai_425 {
         padding: 0;
+        align-items: center;
         flex-direction: column;
       }
       .DisplayTotal {
@@ -351,9 +354,9 @@
           min-height: 300px;
         }
         .FoucsArea {
+          @include flex_pos(center, center, column);
           div {
-            display: inline-block;
-            width: 50%;
+            width: 100%;
             height: 97px;
             font-size: 48px;
             line-height: 97px;
@@ -443,7 +446,7 @@
               }
             }
             @include dai_425 {
-              font-size: 16px;
+              font-size: 14px;
             }
           }
         }
@@ -452,15 +455,22 @@
   }
   footer {
     margin-top: 20px;
-    height: 35px;
+    min-height: 35px;
     background-color: #000;
     padding: 0 15%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include dai_425 {
+      flex-direction: column;
+      justify-content: center;
+    }
     span {
       color: white;
       line-height: 35px;
+      @include dai_425 {
+        text-align: center;
+      }
     }
   }
 </style>

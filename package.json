@@ -3,20 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.5",
     "cors-anywhere": "^0.4.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0",
     "vue": "^2.6.10",
+    "vue-axios": "^2.1.5",
+    "vue-cookies": "^1.6.1",
     "vue-loading-overlay": "^3.2.0",
     "vue-router": "^3.0.3",
-    "vue2-google-maps": "^0.10.6"
+    "vue2-google-maps": "^0.10.6",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",

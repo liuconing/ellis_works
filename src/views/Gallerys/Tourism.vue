@@ -84,7 +84,7 @@
         GetData: [],
         Area: [],
         focusArea: "請選擇",
-        markers: [],
+        markers: [{ position: {}, title: null }],
         isLoading: true
       };
     },
@@ -103,7 +103,6 @@
     watch: {},
     methods: {
       addMarker(Area) {
-        console.log("Area");
         let marker = {};
         this.markers.length = 0;
         if (Area == "請選擇" || !Area) {
@@ -138,9 +137,7 @@
         "https://data.kcg.gov.tw/api/action/datastore_search?resource_id=92290ee5-6e61-456f-80c0-249eae2fcc97",
         { method: "GET" }
       )
-        .then(res => {
-          return res.json();
-        })
+        .then(res => res.json())
         .then(data => {
           this.GetData = data.result.records;
           this.isLoading = false;

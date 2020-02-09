@@ -11,15 +11,16 @@
           <p class="mt-3">劉文華（Ellis）</p>
           <h3 class="mt-4">工作經歷</h3>
           <p class="mt-3 mb-2">
-            <span class="font-weight-bold font-italic">2018/04 - 2019/01</span>
+            <span class="font-weight-bold font-italic">2018/04 - 2020/02</span>
             思偉達科技股份有限公司－前端工程師
           </p>
-          <p>建立乙太坊交易所和與智能合約串接製作區塊鏈相關產品。</p>
+          <p class="mt-2">建立乙太坊交易所和與智能合約串接製作區塊鏈相關產品。</p>
           <h3 class="mt-4">技能</h3>
-          <p class="mt-3">HTML / CSS3 、 JavaScript 、 jQuery 、 VueJS 、 Bootstrap4 、 ReactJS、 Git</p>
+          <p class="mt-3">HTML / CSS3 、 JavaScript 、 jQuery 、 VueJS、 Nuxt.js 、 ReactJS、 Git / GitHub</p>
           <h3 class="mt-4">簡介</h3>
           <p class="mt-3">我叫劉文華（Ellis），居住新北市三峽， 1995 年出生並於 2017 年亞東技術學院畢業。</p>
-          <p class="mt-3">具備能熟練使用 HTML / CSS 按照設計稿刻出畫面並使用 JavaScript 製作出具有功能性的網站。</p>
+          <p class="mt-3">曾任 思偉達創新科技 擔任前端工程師職務，在任內為公司建置去中心化交易所前端版面與辜能串接、也製作與智能合約做串接的應用頁面。</p>
+          <p class="mt-3">具備能熟練使用 HTML / CSS 按照設計稿刻出畫面並使用 JavaScript 語言製作出具有功能性的網站。</p>
           <p class="mt-3">有相關前端實務經驗，擁有良好的團隊溝通，喜歡互相分享技術經驗或新知並對於新技術熱於研究。</p>
         </div>
       </div>
@@ -86,8 +87,12 @@
     .MyImag {
       img {
         display: block;
-        width: 100%;
+        width: 500px;
         min-height: auto;
+        margin: 0 auto;
+        @include dai_425 {
+          width: 100%;
+        }
       }
     }
     .MyInt {

@@ -4,19 +4,21 @@
   </div>
 </template>
 
-
-
 <script>
-  export default {
-    data() {
-      return {};
-    },
-    watch: {},
-    components: {},
-    methods: {},
-    mounted() {}
-  };
+export default {
+  data() {
+    return {};
+  },
+  watch: {},
+  components: {},
+  methods: {},
+  mounted() {}
+};
 </script>
 
-<style lang="scss" >
+<style lang="scss" scope>
+// #app {
+//   min-width: 1910px;
+//   height: 100%;
+// }
 </style>

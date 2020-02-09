@@ -1,3 +1,8 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
 html,
 body,
 div,
@@ -82,22 +87,33 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
+  font-size: 100%;
   vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
   line-height: 1;
 }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol, Noto Color Emoji !important;
-}
-img {
-  vertical-align: middle;
-}
+
 ol,
 ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 blockquote,
@@ -117,6 +133,19 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 a {
   text-decoration: none;
+  display: inline;
+}
+html {
+  transition: 0.5s all;
+}
+input {
+  -webkit-appearance: none; /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+  -moz-appearance: none; /* FireFox */
+  appearance: none;
+  &:focus {
+    outline: none;
+  }
 }
