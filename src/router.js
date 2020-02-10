@@ -75,6 +75,10 @@ export default new Router({
           component: () =>
             import("./views/VueShop/ShopBackstage/Products/Products.vue"),
           meta: { requiresAuth: true }
+        },
+        {
+          path: "*",
+          redirect: "/login"
         }
       ]
     },
