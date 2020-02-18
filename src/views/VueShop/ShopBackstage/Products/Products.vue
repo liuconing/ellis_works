@@ -26,7 +26,8 @@
               <span v-else>未啟用</span>
             </td>
             <td>
-              <button class="btn btn-outline-primary btn-sm" @click="openModal(false, item)">編輯</button>
+              <button class="btn btn-outline-primary btn-sm" @click="openModal(false, item,true)">編輯</button>
+              <button class="btn btn-outline-danger btn-sm" @click="openModal(false,item,false)">刪除</button>
             </td>
           </tr>
         </tbody>
@@ -40,7 +41,7 @@
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-lg" role="document">
+        <div v-if="openSwitch" class="modal-dialog modal-lg" role="document">
           <div class="modal-content border-0">
             <div class="modal-header bg-dark text-white">
               <h5 class="modal-title" id="exampleModalLabel">
@@ -68,7 +69,14 @@
                       或 上傳圖片
                       <i class="fas fa-spinner fa-spin"></i>
                     </label>
-                    <input type="file" id="customFile" class="form-control" ref="files" />
+                    <input
+                      type="file"
+                      id="customFile"
+                      class="form-control"
+                      ref="files"
+                      name="file-to-upload"
+                      @change="uploadFile()"
+                    />
                   </div>
                   <img
                     img="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=828346ed697837ce808cae68d3ddc3cf&auto=format&fit=crop&w=1350&q=80"
@@ -178,6 +186,19 @@
             </div>
           </div>
         </div>
+        <div v-else class="modal-dialog modal-lg" role="document">
+          <div class="modal-content border-0">
+            <div class="modal-header bg-danger text-white align-items-center">
+              <h5 class="modal-title" id="exampleModalLabel">
+                <span>刪除產品</span>
+              </h5>
+              <div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="ml-3 btn btn-primary" @click="openDelProductModal()">確認</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -188,10 +209,12 @@
       return {
         products: [],
         tempProduct: {},
-        isNew: false
+        isNew: false,
+        openSwitch: true
       };
     },
     methods: {
+      //讀取產品列表
       getProducts() {
         const { axios, $store } = this;
         const api = `${$store.state.APIPATH}/api/${$store.state.NAME}/products`;
@@ -199,7 +222,16 @@
           this.products = res.data.products;
         });
       },
-      openModal(isNew, item) {
+      //打開編輯視窗
+      openModal(isNew, item, Del) {
+        //刪除視窗
+        if (!Del && !isNew) {
+          this.tempProduct = Object.assign({}, item);
+          this.openSwitch = false;
+          $("#productModal").modal("show");
+          return;
+        }
+        //新增修改視窗
         if (isNew) {
           this.tempProduct = {};
           this.isNew = true;
@@ -209,13 +241,21 @@
         }
         $("#productModal").modal("show");
       },
+      openDelProductModal() {
+        const { axios, $store, tempProduct } = this;
+        let api = `${$store.state.APIPATH}/api/${$store.state.NAME}/admin/product/${tempProduct.id}`;
+        axios.delete(api).then(res => {
+          console.log(res.data);
+          $("#productModal").modal("hide");
+          this.getProducts();
+        });
+      },
+      //上傳&修改 新資料
       updateProduct() {
         const { axios, $store, tempProduct, isNew } = this;
-        // let http = "post";
         let api = `${$store.state.APIPATH}/api/${$store.state.NAME}/admin/product`;
         if (!isNew) {
           api = `${$store.state.APIPATH}/api/${$store.state.NAME}/admin/product/${tempProduct.id}`;
-          // http = "put";
         }
         axios[isNew ? "post" : "put"](api, { data: tempProduct }).then(res => {
           console.log(res.data);
@@ -227,7 +267,29 @@
             this.getProducts();
             console.log("新增失敗");
           }
+          this.openSwitch = true;
         });
+      },
+      //上傳圖片
+      uploadFile() {
+        const { axios, $store } = this;
+        const uploadedFile = this.$refs.files.files[0];
+        const formData = new FormData();
+        formData.append("file-to-upload", uploadedFile);
+        const api = `${$store.state.APIPATH}/api/${$store.state.NAME}/admin/upload`;
+        axios
+          .post(api, formData, {
+            headers: {
+              "Content-Type": "multipart/form-data"
+            }
+          })
+          .then(res => {
+            console.log(res.data);
+            if (res.data.success) {
+              // this.tempProduct.imageUrl = res.data.imageUrl;
+              this.$set(this.tempProduct, "imageUrl", res.data.imageUrl);
+            }
+          });
       }
     },
     created() {
