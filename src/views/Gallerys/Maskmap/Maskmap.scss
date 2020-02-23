@@ -1,0 +1,42 @@
+#Maskmap {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  @include flex_center;
+  @include dai_425 {
+    height: 100vh;
+    @include flex_pos(center, center, column);
+  }
+  .leaflet-popup-content {
+    @include flex_pos(center, flex-start, column);
+    h2,
+    p {
+      margin: 3px 0;
+    }
+  }
+  .toolbox {
+    height: 100%;
+    @include flex_pos(center, flex-start, column);
+    ul {
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+    }
+  }
+}
+.City {
+  width: 30%;
+  height: 100%;
+  @include dai_425 {
+    width: 100%;
+    height: 30%;
+  }
+}
+.Map {
+  width: 70%;
+  height: 100%;
+  @include dai_425 {
+    width: 100%;
+    height: 70%;
+  }
+}

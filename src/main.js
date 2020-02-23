@@ -7,7 +7,17 @@ import store from "./store/index";
 import VueCookies from "vue-cookies";
 import "bootstrap"; // Import js file
 import "bootstrap/dist/css/bootstrap.min.css";
+import "leaflet/dist/leaflet.css";
 import * as VueGoogleMaps from "vue2-google-maps";
+import { Icon } from "leaflet";
+
+// 設定預設 icon
+delete Icon.Default.prototype._getIconUrl;
+Icon.Default.mergeOptions({
+  iconRetinaUrl: require("leaflet/dist/images/marker-icon.png"),
+  iconUrl: require("leaflet/dist/images/marker-icon.png"),
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png")
+});
 
 Vue.use(VueGoogleMaps, {
   load: {

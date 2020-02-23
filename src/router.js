@@ -14,6 +14,7 @@ export default new Router({
       }
     },
     {
+      //作品集
       path: "/gallerys",
       component: () => import("./views/Layout.vue"),
       children: [
@@ -34,6 +35,11 @@ export default new Router({
           component: () => import("./views/Gallerys/Fortune.vue")
         }
       ]
+    },
+    //口罩地圖
+    {
+      path: "/maskmap",
+      component: () => import("./views/Gallerys/Maskmap/Maskmap.vue")
     },
     {
       path: "/thef2e",
