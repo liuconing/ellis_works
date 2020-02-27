@@ -12,8 +12,8 @@ module.exports = {
     ]
   },
 
-  // baseUrl: process.env.NODE_ENV === "production" ? "" : "",
-  publicPath: process.env.NODE_ENV === "production" ? "/ellis_works/" : "/",
+  // publicPath: process.env.NODE_ENV === "production" ? "/ellis_works/" : "/",
+  publicPath: process.env.NODE_ENV === "production" ? "/" : "/",
   outputDir: undefined,
   assetsDir: undefined,
   runtimeCompiler: undefined,

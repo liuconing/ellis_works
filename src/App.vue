@@ -16,9 +16,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scope>
-// #app {
-//   min-width: 1910px;
-//   height: 100%;
-// }
-</style>
+<style lang="scss" scope></style>

@@ -30,6 +30,7 @@ Vue.use(VueCookies);
 Vue.config.productionTip = false;
 axios.defaults.withCredentials = true;
 
+//路由守衛
 router.beforeEach((to, form, next) => {
   if (to.meta.requiresAuth) {
     const api = `${store.state.APIPATH}/api/user/check`;

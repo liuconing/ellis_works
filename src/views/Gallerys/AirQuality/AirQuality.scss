@@ -1,0 +1,240 @@
+* {
+  font-family: Noto Sans CJK TC;
+  font-weight: bold;
+}
+.AirQuality {
+  padding-top: 30px;
+  .AirQuality_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include dai_425 {
+      flex-direction: column;
+    }
+    .AreaSelect {
+      margin-right: 20%;
+      @include dai_425 {
+        margin-right: 0;
+      }
+      #QualitySelect {
+        margin-top: 10px;
+        width: 100%;
+        border: solid #000000 3px;
+        height: 56px;
+        padding-left: 20px;
+      }
+    }
+    .Indicatortable {
+      @include dai_425 {
+        margin-top: 30px;
+      }
+      table {
+        th,
+        td {
+          text-align: center;
+          width: 120px;
+          height: 55px;
+          font-size: 16px;
+          vertical-align: middle;
+
+          border: 3px solid #000000;
+        }
+        th {
+          &:nth-of-type(1) {
+            background-color: #95f084;
+          }
+          &:nth-of-type(2) {
+            background-color: #ffe695;
+          }
+          &:nth-of-type(3) {
+            background-color: #ffaf6a;
+          }
+          &:nth-of-type(4) {
+            background-color: #ff5757;
+          }
+          &:nth-of-type(5) {
+            background-color: #9777ff;
+          }
+          &:nth-of-type(6) {
+            background-color: #ad1774;
+          }
+        }
+      }
+    }
+  }
+  .DisplayArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10%;
+    height: 35px;
+    margin: 45px 0;
+    @include dai_425 {
+      padding: 0;
+      flex-direction: column;
+      height: auto;
+      margin: 20px 0;
+    }
+    h2 {
+      width: 160px;
+      @include dai_425 {
+        text-align: center;
+        width: 100%;
+      }
+    }
+    hr {
+      width: 100%;
+      border-top: 3px dashed #000;
+      margin-right: 40px;
+      @include dai_425 {
+        display: none;
+      }
+    }
+    .UpdateTime {
+      width: 21%;
+      line-height: 35px;
+      @include dai_425 {
+        font-size: 16px;
+        width: auto;
+        text-align: center;
+      }
+    }
+  }
+  .AirQuality_content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 10%;
+    @include dai_425 {
+      padding: 0;
+      align-items: center;
+      flex-direction: column;
+    }
+    .DisplayTotal {
+      display: inline-block;
+      width: 350px;
+      min-height: 535px;
+      border: 3px solid #000;
+      @include dai_425 {
+        min-height: 300px;
+      }
+      .FoucsArea {
+        @include flex_pos(center, center, column);
+        div {
+          width: 100%;
+          height: 97px;
+          font-size: 48px;
+          line-height: 97px;
+          text-align: center;
+          font-weight: bold;
+          border-bottom: 3px solid #000;
+          @include dai_425 {
+            font-size: 28px;
+            height: 65px;
+            line-height: 65px;
+          }
+        }
+      }
+      ul {
+        width: 100%;
+        height: 100%;
+        padding: 30px;
+        li {
+          padding-top: 15px;
+          padding-bottom: 20px;
+          border-bottom: 1px solid #000000;
+
+          p {
+            display: inline-block;
+            font-size: 24px;
+            font-weight: bold;
+
+            &:nth-of-type(1) {
+              width: 80%;
+              margin-right: -3px;
+            }
+            &:nth-of-type(2) {
+              width: 20%;
+              text-align: right;
+            }
+            span {
+              font-size: 16px;
+              font-weight: 500;
+              margin-left: -3px;
+              @include dai_425 {
+                font-size: 12px;
+                margin-left: 0px;
+              }
+            }
+            @include dai_425 {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+    .ContentSelect {
+      width: calc(100% - 353px);
+      min-height: 535px;
+      display: inline-block;
+      padding-left: 30px;
+      @include dai_425 {
+        margin-top: 30px;
+        width: 100%;
+        min-height: auto;
+      }
+      li {
+        margin: 0 30px;
+        margin-bottom: 30px;
+        width: calc(100% / 2 - 60px);
+        height: 97px;
+        border: solid 3px #000;
+        float: left;
+        @include dai_425 {
+          width: calc(100% / 2 - 30px);
+          margin: 0 15px;
+          height: 50px;
+          margin-bottom: 15px;
+        }
+        p {
+          display: inline-block;
+          width: 50%;
+          height: 100%;
+          font-size: 48px;
+          text-align: center;
+          @include TextCenter;
+          &:nth-of-type(1) {
+            border-right: solid 3px #000;
+            &:hover {
+              @include mouse;
+              background-color: darken($color: #ffffff, $amount: 20%);
+            }
+          }
+          @include dai_425 {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+footer {
+  margin-top: 20px;
+  min-height: 35px;
+  background-color: #000;
+  padding: 0 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include dai_425 {
+    flex-direction: column;
+    justify-content: center;
+  }
+  span {
+    color: white;
+    line-height: 35px;
+    @include dai_425 {
+      text-align: center;
+    }
+  }
+}

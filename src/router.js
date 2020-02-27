@@ -24,15 +24,15 @@ export default new Router({
         },
         {
           path: "tourism",
-          component: () => import("./views/Gallerys/Tourism.vue")
+          component: () => import("./views/Gallerys/Tourism/Tourism.vue")
         },
         {
           path: "airquality",
-          component: () => import("./views/Gallerys/AirQuality.vue")
+          component: () => import("./views/Gallerys/AirQuality/AirQuality.vue")
         },
         {
           path: "fortune",
-          component: () => import("./views/Gallerys/Fortune.vue")
+          component: () => import("./views/Gallerys/Fortune/Fortune.vue")
         }
       ]
     },
