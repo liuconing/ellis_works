@@ -65,9 +65,7 @@ export default {
   },
   watch: {},
   components: {
-    LoginPicture: () => import("@/components/LoginPicture/LoginPicture.vue"),
-    //簡單Login動畫
-    Open: () => import("@/components/Open/Open.vue")
+    LoginPicture: () => import("@/components/LoginPicture/LoginPicture.vue")
   },
   methods: {
     ScrollTop(id) {

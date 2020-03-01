@@ -36,6 +36,11 @@ export default new Router({
         }
       ]
     },
+    //KKboxMusic
+    {
+      path: "/kkboxmusic",
+      component: () => import("./views/Gallerys/KKboxMusic/KKboxMusic.vue")
+    },
     //口罩地圖
     {
       path: "/maskmap",

@@ -1,5 +1,14 @@
 const webpack = require("webpack");
 module.exports = {
+  devServer: {
+    proxy: {
+      "/token": {
+        target: "https://account.kkbox.com/oauth2/token",
+        ws: true,
+        changeOrigin: true
+      }
+    }
+  },
   configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({
