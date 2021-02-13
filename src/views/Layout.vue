@@ -8,7 +8,7 @@
       class="navbar navbar-expand-lg navbar-dark sticky-top"
       style="background-color:rgba(0,0,0, .6)"
     >
-      <span class="navbar-brand"></span>
+      <span class="navbar-brand" />
       <button
         class="navbar-toggler"
         type="button"
@@ -18,7 +18,7 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon" />
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -60,47 +60,48 @@ export default {
     return {
       Router: this.$router.history.current.fullPath,
       WindowHeight: 0,
-      scrolled: false
+      scrolled: false,
     };
   },
   watch: {},
   components: {
-    LoginPicture: () => import("@/components/LoginPicture/LoginPicture.vue")
+    LoginPicture: () => import("@/components/LoginPicture/LoginPicture.vue"),
   },
   methods: {
     ScrollTop(id) {
       this.Router = this.$router.history.current.fullPath;
-      console.log(this.Router);
-      if (this.Router == "/") {
-        $("html, body").animate(
-          {
-            scrollTop: $(`#${id}`).offset().top
-          },
-          1000
-        );
-      } else {
-        new Promise((resolve, reject) => {
-          this.$router.push({ path: "/gallerys" });
-          setTimeout(() => {
-            resolve();
-          }, 300);
-        }).then(res => {
+      this.$nextTick(() => {
+        if (this.Router == "/") {
           $("html, body").animate(
             {
-              scrollTop: $(`#${id}`).offset().top
+              scrollTop: $(`#${id}`).offset().top,
             },
             1000
           );
-        });
-      }
-    }
+        } else {
+          new Promise((resolve, reject) => {
+            this.$router.push({ path: "/gallerys" });
+            setTimeout(() => {
+              resolve();
+            }, 300);
+          }).then((res) => {
+            $("html, body").animate(
+              {
+                scrollTop: $(`#${id}`).offset().top,
+              },
+              1000
+            );
+          });
+        }
+      });
+    },
   },
   mounted() {},
   created() {
-    this.axios
-      .get("https://vue-course-api.herokuapp.com/api/ellis_shop/products")
-      .then(res => console.log(res));
-  }
+    // this.axios
+    //   .get("https://vue-course-api.herokuapp.com/api/ellis_shop/products")
+    //   .then((res) => console.log(res));
+  },
 };
 </script>
 <style lang="scss">

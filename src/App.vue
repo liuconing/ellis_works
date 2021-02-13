@@ -1,19 +1,13 @@
 <template>
   <div id="app">
-    <router-view />
+    <!-- Cache -->
+    <keep-alive v-if="$route.meta.keepAlive">
+      <router-view />
+    </keep-alive>
+    <router-view v-else-if="$route.meta.keepAlive === undefined" />
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {};
-  },
-  watch: {},
-  components: {},
-  methods: {},
-  mounted() {}
-};
+export default {};
 </script>
-
-<style lang="scss" scope></style>
