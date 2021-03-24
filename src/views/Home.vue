@@ -15,10 +15,24 @@
             <br />
             <a href="https://home.star-bit.io/zh-tw/" target="_blank"
               >思偉達科技股份有限公司</a
-            >－前端工程師
+            >－前端工程師 Front-End Developer
           </p>
           <p class="mt-2 ">
             建立乙太坊交易所和與智能合約串接製作區塊鏈相關產品。
+            <br />
+            使用web3.js與各種生態鏈跟區塊鏈合約進行溝通與操作。
+          </p>
+          <p class="mt-3 mb-2">
+            <span class="font-weight-bold font-italic">2020/03 - Now</span>
+            <br />
+            <a href="https://www.104.com.tw/company/1a2x6bkvg7" target="_blank">
+              樹人科技有限公司 </a
+            >－前端工程師 Front-End Developer
+          </p>
+          <p class="mt-2 ">
+            串接H5遊戲API並製作手機版本的入口網站。<br />
+            製作後台管理網站，針對使用者資料進行操作。<br />
+            使用nuxt.js製作SSR網站，具有SEO效果。
           </p>
           <h3 class="mt-4">技能</h3>
           <p class="mt-3">
@@ -77,8 +91,9 @@
             <h3>空氣品質指標 (AQI)</h3>
             <p>
               ● 使用 Vue 框架做撰寫
-              <br />● 跨來源資源共用（CORS）取得 API 資料 <br />● fetch 取的 API
-              並渲染出來 <br />● 使用 vue-loading 來做等待載入資料畫面
+              <br />● 使用Golang來處理跨來源資源共用（CORS）取得 API 資料
+              <br />● 原生fetch 取得 API 並渲染出來 <br />● 使用 vue-loading
+              來做等待載入資料畫面
             </p>
             <router-link to="gallerys/airquality">
               <img
@@ -208,10 +223,12 @@ export default {
         margin: 0 20px;
         margin-bottom: 50px;
         background-color: rgba(0, 0, 0, 0);
-        min-height: 550px;
+        height: 750px;
         @include flex_pos(flex-start, center, column);
         @include dai_425 {
-          width: 100%;
+          @include flex_pos(center, center, column);
+          width: calc(100%);
+          height: auto;
           min-height: 350px;
         }
         p {

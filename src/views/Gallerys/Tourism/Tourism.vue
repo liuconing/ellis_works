@@ -5,7 +5,7 @@
         :active.sync="isLoading"
         :can-cancel="false"
         :is-full-page="true"
-      ></Loading>
+      />
     </div>
     <div v-else-if="!isLoading" class="falseLoading">
       <div class="wrae clearfix">
@@ -38,7 +38,7 @@
           <GmapMap
             :center="{
               lat: markers[0].position.lat,
-              lng: markers[0].position.lng
+              lng: markers[0].position.lng,
             }"
             :zoom="11"
             map-type-id="terrain"
@@ -107,20 +107,20 @@ export default {
       Area: [],
       focusArea: "請選擇",
       markers: [{ position: {}, title: null }],
-      isLoading: true
+      isLoading: true,
     };
   },
   components: {
-    Loading
+    Loading,
   },
   computed: {
     displayArea() {
-      return this.GetData.filter(item => {
+      return this.GetData.filter((item) => {
         return (
           item.Zone == (this.focusArea == "請選擇" ? "三民區" : this.focusArea)
         );
       });
-    }
+    },
   },
   watch: {},
   methods: {
@@ -128,21 +128,21 @@ export default {
       let marker = {};
       this.markers.length = 0;
       if (Area == "請選擇" || !Area) {
-        this.GetData.forEach(item => {
+        this.GetData.forEach((item) => {
           if (item.Zone == "三民區") {
             marker = {
               lat: parseFloat(item.Py),
-              lng: parseFloat(item.Px)
+              lng: parseFloat(item.Px),
             };
             this.markers.push({ position: marker, title: item.Name });
           }
         });
       } else {
-        this.GetData.forEach(item => {
+        this.GetData.forEach((item) => {
           if (item.Zone == Area) {
             marker = {
               lat: parseFloat(item.Py),
-              lng: parseFloat(item.Px)
+              lng: parseFloat(item.Px),
             };
             this.markers.push({ position: marker });
           }
@@ -152,30 +152,31 @@ export default {
     HotArea(event) {
       this.focusArea = event.target.innerText;
       this.addMarker(event.target.innerText);
-    }
+    },
   },
   async created() {
     await fetch(
-      "https://data.kcg.gov.tw/api/action/datastore_search?resource_id=92290ee5-6e61-456f-80c0-249eae2fcc97",
+      "https://api.kcg.gov.tw/api/service/get/9c8e1450-e833-499c-8320-29b36b7ace5c",
       { method: "GET" }
     )
-      .then(res => res.json())
-      .then(data => {
-        this.GetData = data.result.records;
+      .then((res) => res.json())
+      .then((data) => {
+        this.GetData = data.data.XML_Head.Infos.Info;
         this.isLoading = false;
       });
     this.Area = [
-      ...new Set(this.GetData.map(item => JSON.stringify(item.Zone)))
-    ].map(item => JSON.parse(item));
+      ...new Set(this.GetData.map((item) => JSON.stringify(item.Zone))),
+    ].map((item) => JSON.parse(item));
+    console.log(new Set(this.GetData.map((item) => JSON.stringify(item.Zone))));
     this.addMarker();
   },
   mounted() {
-    setTimeout(() => {
-      if (this.isLoading) {
-        return alert("");
-      }
-    }, 60000);
-  }
+    // setTimeout(() => {
+    //   if (this.isLoading) {
+    //     return alert("");
+    //   }
+    // }, 60000);
+  },
 };
 </script>
 <style lang="scss" scoped>
