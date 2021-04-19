@@ -36,13 +36,13 @@
         </div>
         <div id="map" class="mx-auto google-map">
           <GmapMap
+            class="GmapMap"
             :center="{
               lat: markers[0].position.lat,
               lng: markers[0].position.lng,
             }"
             :zoom="11"
             map-type-id="terrain"
-            style="width: 500px; height: 300px"
           >
             <GmapMarker
               :key="index"
@@ -70,7 +70,7 @@
                 <div class="land-content">
                   <div class="land-text">
                     <h3>{{ n.Name }}</h3>
-                    <h5>{{ n.Zone }}</h5>
+                    <!-- <h5>{{ n.Zone }}</h5> -->
                   </div>
                 </div>
               </div>
@@ -104,7 +104,46 @@ export default {
   data() {
     return {
       GetData: [],
-      Area: [],
+      Area: [
+        "楠梓區",
+        "左營區",
+        "鼓山區",
+        "三民區",
+        "苓雅區",
+        "新興區",
+        "前金區",
+        "鹽埕區",
+        "前鎮區",
+        "旗津區",
+        "小港區",
+        "鳳山區",
+        "茂林區",
+        "甲仙區",
+        "六龜區",
+        "杉林區",
+        "美濃區",
+        "內門區",
+        "仁武區",
+        "田寮區",
+        "旗山區",
+        "梓官區",
+        "阿蓮區",
+        "湖內區",
+        "岡山區",
+        "茄萣區",
+        "路竹區",
+        "鳥松區",
+        "永安區",
+        "燕巢區",
+        "大樹區",
+        "大寮區",
+        "林園區",
+        "彌陀區",
+        "橋頭區",
+        "大社區",
+        "那瑪夏區",
+        "桃源區",
+      ],
       focusArea: "請選擇",
       markers: [{ position: {}, title: null }],
       isLoading: true,
@@ -117,7 +156,9 @@ export default {
     displayArea() {
       return this.GetData.filter((item) => {
         return (
-          item.Zone == (this.focusArea == "請選擇" ? "三民區" : this.focusArea)
+          item.Add.indexOf(
+            this.focusArea === "請選擇" ? "三民區" : this.focusArea
+          ) > 0
         );
       });
     },
@@ -127,19 +168,20 @@ export default {
     addMarker(Area) {
       let marker = {};
       this.markers.length = 0;
-      if (Area == "請選擇" || !Area) {
+      if (Area === "請選擇" || !Area) {
         this.GetData.forEach((item) => {
-          if (item.Zone == "三民區") {
+          if (item.Add.indexOf("三民區") > 0) {
             marker = {
               lat: parseFloat(item.Py),
               lng: parseFloat(item.Px),
             };
+            console.log(item.Add.indexOf("三民區") > 0);
             this.markers.push({ position: marker, title: item.Name });
           }
         });
       } else {
         this.GetData.forEach((item) => {
-          if (item.Zone == Area) {
+          if (item.Add.indexOf(Area) > 0) {
             marker = {
               lat: parseFloat(item.Py),
               lng: parseFloat(item.Px),
@@ -164,10 +206,10 @@ export default {
         this.GetData = data.data.XML_Head.Infos.Info;
         this.isLoading = false;
       });
-    this.Area = [
-      ...new Set(this.GetData.map((item) => JSON.stringify(item.Zone))),
-    ].map((item) => JSON.parse(item));
-    console.log(new Set(this.GetData.map((item) => JSON.stringify(item.Zone))));
+    // this.Area = [
+    //   ...new Set(this.GetData.map((item) => JSON.stringify(item.Zone))),
+    // ].map((item) => JSON.parse(item));
+    // console.log(new Set(this.GetData.map((item) => JSON.stringify(item.Zone))));
     this.addMarker();
   },
   mounted() {
